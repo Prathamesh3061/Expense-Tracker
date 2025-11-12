@@ -1,0 +1,11 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* We'll add the global body styles here, just like GlobalStyle.js did */
+@layer base {
+  body {
+    @apply bg-dark-primary text-text-light font-sans;
+  }
+}
