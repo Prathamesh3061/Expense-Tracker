@@ -4,7 +4,8 @@ import { toast } from 'react-toastify';
 import moment from 'moment';
 
 // Base URL for your backend
-const API_URL = 'http://localhost:5000/api/';
+const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+const API_URL = `${BASE_URL}/api/`;
 const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
