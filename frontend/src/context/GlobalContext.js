@@ -69,7 +69,10 @@ export const GlobalProvider = ({ children }) => {
     } else {
       setLoading(false); // No token, not loading
     }
-  }, [token]); // Re-run if token changes
+     // eslint-disable-next-line
+  }, [token]); 
+  
+  // Re-run if token changes
 
   // --- Add Transaction ---
 const addTransaction = async (description, amount, categoryIcon) => {
@@ -156,7 +159,7 @@ const addTransaction = async (description, amount, categoryIcon) => {
     // Ensure values are not negative for the chart
     const income = parseFloat(totalIncome);
     const expense = parseFloat(totalExpense);
-    const balance = parseFloat(totalBalance);
+    // const balance = parseFloat(totalBalance);
     
     // We only want to chart income and expenses
     const total = income + expense;
