@@ -12,7 +12,13 @@ connectDB();
 const app = express();
 
 // Middleware
-app.use(cors()); // Allows requests from your frontend
+app.use(cors({
+  origin: [
+    "http://localhost:3000", 
+    "https://expense-tracker-sepia-mu.vercel.app"
+  ],
+  credentials: true
+})); // Allows requests from frontend
 app.use(express.json()); // Allows us to accept JSON data in the body
 
 // --- API Routes ---
