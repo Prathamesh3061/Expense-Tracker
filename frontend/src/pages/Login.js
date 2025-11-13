@@ -17,8 +17,7 @@ function Login() {
       const { data } = await axios.post(API_URL, { email, password });
       localStorage.setItem('userToken', data.token);
       toast.success('Login successful!');
-      // Manually update the token in our context
-      // We can't use useGlobalContext here, so we'll just reload
+      
       window.location.href = '/'; // Simple reload to trigger context
     } catch (error) {
       toast.error(error.response?.data?.error || 'Login failed');
