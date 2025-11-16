@@ -6,7 +6,7 @@ import { useGlobalContext } from '../context/GlobalContext';
 const avatar = 'https://placehold.co/100x100/3498db/white?text=User'; 
 
 function Navigation() {
-  const { user, logout } = useGlobalContext();
+  const { user, logout, deleteAccount} = useGlobalContext();
   const [isOpen, setIsOpen] = useState(false); // State to toggle menu on mobile
 
   const handleLogout = () => {
@@ -82,14 +82,22 @@ function Navigation() {
           </li>
         </ul>
         
-        <div className="mt-6">
-          <button 
-            onClick={handleLogout}
-            className="w-full p-3 rounded-md bg-danger text-text-white font-bold transition-colors hover:bg-danger-hover"
-          >
-            Logout
-          </button>
-        </div>
+      <div className="mt-6 flex flex-col gap-4">
+                <button 
+                  onClick={handleLogout}
+                  className="w-full p-3 rounded-md bg-primary text-text-white font-bold transition-colors hover:bg-primary-hover"
+                >
+                  Logout
+                </button>
+
+                {/* --- DELETE ACCOUNT BUTTON --- */}
+                <button 
+                  onClick={() => deleteAccount()}
+                  className="w-full p-3 rounded-md border border-danger text-danger font-bold transition-colors hover:bg-danger hover:text-white"
+                >
+                  Delete Account
+                </button>
+              </div>
       </div>
 
     </nav>

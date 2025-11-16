@@ -113,6 +113,21 @@ const addTransaction = async (description, amount, categoryIcon) => {
     toast.info('You have been logged out.');
   };
 
+  // --- Delete User Account ---
+  const deleteAccount = async () => {
+    const confirmDelete = window.confirm("Are you sure you want to delete your account? This will PERMANENTLY delete all your income and expense data. This cannot be undone.");
+    
+    if (confirmDelete) {
+      try {
+        await api.delete('users/delete-me');
+        toast.success('Account deleted successfully');
+        logout(); // Log them out and clear the token
+      } catch (err) {
+        toast.error(err.response?.data?.error || 'Failed to delete account');
+      }
+    }
+  };
+
   // --- Calculations ---
   // (DELETE THE OLD CALCULATIONS AND REPLACE WITH THIS)
   
@@ -187,6 +202,7 @@ return (
         token,
         setAuthToken,
         logout,
+        deleteAccount,
         addTransaction,
         deleteTransaction,
         

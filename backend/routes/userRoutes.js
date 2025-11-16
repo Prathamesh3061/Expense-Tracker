@@ -5,11 +5,17 @@ const {
   registerUser,
   loginUser,
   getUserProfile,
+  forgotPassword,
+  resetPassword,
+  deleteUserAccount,
 } = require('../controllers/userController');
 const { protect } = require('../middleware/authMiddleware');
 
 router.post('/register', registerUser);
 router.post('/login', loginUser);
-router.get('/profile', protect, getUserProfile); // 'protect' means you must be logged in
+router.get('/profile', protect, getUserProfile); 
+router.post('/forgotpassword', forgotPassword);
+router.put('/resetpassword', resetPassword);
+router.delete('/delete-me', protect, deleteUserAccount);
 
 module.exports = router;

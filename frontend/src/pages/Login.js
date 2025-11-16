@@ -55,6 +55,10 @@ function Login() {
             className="w-full p-3 border border-gray-700 rounded-lg bg-dark-tertiary text-text-white"
           />
         </div>
+
+        <div className="text-right mb-4">
+            <Link to="/forgot-password" className="text-sm text-primary hover:underline">Forgot Password?</Link>
+        </div>
         
         <button 
           type="submit" 

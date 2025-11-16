@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useGlobalContext } from './context/GlobalContext';
+import ForgotPassword from './pages/ForgotPassword';
 
 // Import Pages
 import Login from './pages/Login';
@@ -31,6 +32,8 @@ function App() {
           path="/register" 
           element={token ? <Navigate to="/" /> : <Register />} 
         />
+
+        <Route path="/forgot-password" element={<ForgotPassword />} />
         
         {/* --- Protected Routes (App) --- */}
         <Route element={<ProtectedRoute />}>
